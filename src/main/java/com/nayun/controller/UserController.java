@@ -17,6 +17,11 @@ public class UserController {
     public String qwe(){
         return "qwe";
     }
+    @RequestMapping("/hello")
+    @ResponseBody
+    public String hello(){
+        return "hello1";
+    }
 
 
 }
