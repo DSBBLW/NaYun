@@ -9,7 +9,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserController {
     @RequestMapping("/user")
     @ResponseBody
+    public String qwe1(){
+        return "qwe";
+    }
+    @RequestMapping("/user2")
+    @ResponseBody
     public String qwe(){
         return "qwe";
     }
+
+
 }
