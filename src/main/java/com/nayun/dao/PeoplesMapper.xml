@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nayun.dao.PeoplesMapper">
+    <select id="sel" resultType="com.nayun.pojo.Peoples">
+      select p.*,CONCAT(d.name,'-',di.name,'-',dis.name) as arean,concat(c.name,'-',co.name) as areans,r.rname from peoples p
+INNER JOIN districts d
+on p.idp=d.id
+INNER JOIN districts di
+on p.idc=di.id
+INNER JOIN districts dis
+on p.idt= dis.id
+INNER JOIN community c
+on p.cause=c.id
+INNER JOIN community co
+on p.xid=co.id
+INNER JOIN rescue r
+on p.cause=r.rid
+</select>
+</mapper>
