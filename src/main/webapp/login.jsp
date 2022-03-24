@@ -23,19 +23,15 @@
         <div>
             <h1 class="logo-name">IN+</h1>
         </div>
-        <h3>欢迎登录inspinia 2.9.2</h3>
-        <p>一套高质量的后台管理html模板</p>
-        <form class="m-t" role="form" action="index.html">
+        <h3>欢迎登录</h3>
+        <form class="m-t" role="form" method="post" action="/dologin">
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="用户名" required="">
+                <input type="text" name="username" class="form-control" placeholder="用户名" required="">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="密码" required="">
+                <input type="password" name="password" class="form-control" placeholder="密码" required="">
             </div>
             <button type="submit" class="btn btn-primary block full-width m-b">登录</button>
-            <a href="#"><small>忘记密码?</small></a>
-            <p class="text-muted text-center"><small>还没有账号?</small></p>
-            <a class="btn btn-sm btn-white btn-block" href="register.html">创建一个帐户</a>
         </form>
         <p class="m-t"> <small>Copyright</strong> inspinia 2.9.2 &copy; 2017-2018</small> </p>
     </div>
