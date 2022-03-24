@@ -21,7 +21,10 @@
 <div class="middle-box text-center loginscreen animated fadeInDown">
     <div>
         <div>
-            <h1 class="logo-name">IN+</h1>
+
+            <h1 class="logo-name">
+                <img alt="image" class="rounded-circle" src="assets/img/picture/nayun_logo.png " height="200" width=150"/>
+            </h1>
         </div>
         <h3>欢迎登录</h3>
         <form class="m-t" role="form" method="post" action="/dologin">
