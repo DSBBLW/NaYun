@@ -22,9 +22,13 @@ public class PeoplesController {
     PageUtil util;
     @RequestMapping("/sel")
     @ResponseBody
-    public Object qwe1(){
-        List<Peoples> list=dao.sel();
-
-        return list;
+    public Object qwe1(String name,String index){
+        name=name==null?"":name;
+        index=index==null?"1":index;
+        int coun=dao.cou("%"+name+"%");
+        int count=coun%10==0?coun/10:coun/10+1;
+        List<Peoples> list=dao.sel("%"+name+"%",(new Integer(index)-1)*10);
+        PageUtil util1=util.set(new Integer(index),list,count);
+        return util1;
     }
 }

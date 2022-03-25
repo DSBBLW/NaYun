@@ -44,20 +44,19 @@ public int getCount() {
 public void setCount(int count) {
 	this.count = count;
 }
-/*public PageUtil(int index, List<T> list, int count) {
+public PageUtil(int index, List<T> list, int count) {
 	
-	this.index = index;
-	this.list = list;
-	this.count = count;
-}*/
-public void set(int index, List<T> list, int count){
 	this.index = index;
 	this.list = list;
 	this.count = count;
 }
-/*public PageUtil() {
+	public PageUtil set(int index, List<T> list, int count){
+		PageUtil util=new PageUtil(index,list,count);
+		return util;
+	}
+public PageUtil() {
 	
-}*/
+}
 
 
 

@@ -295,21 +295,12 @@
                             <th>家庭住址</th>
                         </tr>
                         </thead>
-
-
                         <tbody id="tab">
-                        <%--                    <tr class="gradeX">--%>
-                        <%--                        <td>Trident</td>--%>
-                        <%--                        <td>Internet--%>
-                        <%--                            Explorer 4.0--%>
-                        <%--                        </td>--%>
-                        <%--                        <td>Win 95+</td>--%>
-                        <%--                        <td class="center">4</td>--%>
-                        <%--                        <td class="center">X</td>--%>
-                        <%--                        <td>家庭住址</td>--%>
-                        <%--                    </tr>--%>
                         </tbody>
                     </table>
+                            <div class="col-auto text-right float-right ml-auto" id="paging">
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -327,9 +318,6 @@
 
         </div>
         </div>
-
-
-
     <!-- Mainly scripts -->
     <script src="assets/js/jquery-3.1.1.min.js"></script>
     <script src="assets/js/jquery-1.12.4.js"></script>
@@ -345,39 +333,69 @@
     <script src="assets/js/inspinia.js"></script>
     <script src="assets/js/plugins/pace/pace.min.js"></script>
     <script type="text/javascript">
+        var index=0;
+        var s="";
         $(function () {
             cha();
         });
 
-        function cha() {
+        function cha(ii,name) {
+            var inde=ii;
             //查询
             $.ajax({
                 url:'sel',
                 type:'get',
-                data:{},
+                data:{name:name,index:inde},
                 success:function (data) {
-
-
-                  /*  $(data).each(function(i,item){
-                        a+="<tr class='gradeX'><td>"+item.id+"</td>";
-                        a+="<td>"+item.age+"</td>";
-                        a+="</tr>";
-                        $("#tab").html(a);
-                    });*/
+                    index=data.index;
                   var a="";
-                    $(data).each(function(i,item){
-                        a+="<tr class='gradeX'><td>"+item.id+"</td>";
+                    $(data.list).each(function(i,item){
+                        a+="<tr class='gradeA'><td>"+item.id+"</td>";
                         a+="<td>"+item.name+"</td>";
                         a+="<td>"+item.sex+"</td>";
-                        a+="<td>"+item.ipone+"</td>";
-                        a+="<td>"+item.sex+"</td>";
-                        a+="<td>"+item.sex+"</td>";
-                        a+="<td>"+item.sex+"</td>";
+                        a+="<td>"+item.age+"</td>";
+                        a+="<td>"+item.phone+"</td>";
+                        a+="<td>"+item.rname+"</td>";
+                        a+="<td>"+item.areans+"</td>";
                         a+="</tr>";
                         $("#tab").html(a);
                     });
+                    paging(data.count);
                 }
             })
+        }
+        function paging(coun){
+            var str="";
+            str+="<a class='btn btn-outline-primary mr-2'>总页数:"+coun+"</a>";
+            str+="<a onclick='getS()' class='btn btn-outline-primary mr-2'>首页</a>";
+            str+="<a onclick='getShang()' class='btn btn-outline-primary mr-2'>上一页</a>";
+            str+="<a onclick='getXia("+coun+")' class='btn btn-outline-primary mr-2'>下一页</a>";
+            str+="<a onclick='getWy("+coun+")' class='btn btn-outline-primary mr-2'>尾页</a>";
+            $("#paging").html(str);
+        }
+        /* 上一页 */
+        function getShang(){
+            index=index-1==0?1:index-1;
+            cha(index,s);
+        }
+        /* 下一页 */
+        function getXia(con){
+            index=index+1>=con?con:index+1;
+            cha(index,s);
+        }
+        /* 首页 */
+        function getS(){
+            cha(1,s);
+        }
+        /* 尾页 */
+        function getWy(con){
+            con=con;
+            cha(con,s);
+        }
+        /* 搜索 */
+        function sou(){
+            s=$("#ss").val();
+            cha(1,s);
         }
     </script>
     <!-- Page-Level Scripts -->
