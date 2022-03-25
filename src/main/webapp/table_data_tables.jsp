@@ -257,17 +257,9 @@
         </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>人员管理</h2>
+                    <h2>人员信息管理</h2>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="index.html">主页</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a>表格</a>
-                        </li>
-                        <li class="breadcrumb-item active">
-                            <strong>数据表格</strong>
-                        </li>
+
                     </ol>
                 </div>
                 <div class="col-lg-2">
@@ -282,30 +274,28 @@
                         <div class="row">
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label class="col-form-label" for="name">姓名</label>
-                                    <input type="text" id="name" name="product_name" value="" placeholder="" class="form-control">
+                                    <input type="text" id="name" name="product_name" value="" placeholder="姓名" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label class="col-form-label" for="status">性别</label>
-                                    <select name="status" id="sex" class="form-control">
-                                        <option value="1" selected="">男</option>
-                                        <option value="0">女</option>
+                                    <select name="status" id="sex" class="form-control" >
+                                        <option value="0" selected="">性别</option>
+                                        <option value="1">男</option>
+                                        <option value="2">女</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label class="col-form-label" for="name">年龄</label>
-                                    <input type="text" id="age" name="product_name" value="" placeholder="Age" class="form-control">
+                                    <input type="text" id="age" name="product_name" value="" placeholder="年龄" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label class="col-form-label" for="status">救助原因</label>
                                     <select name="status" id="Rescue_reason" class="form-control">
-                                        <option value="1" selected="">老人</option>
+                                        <option value="0" selected="">救助原因</option>
+                                        <option value="1">老人</option>
                                         <option value="2">失独</option>
                                         <option value="3">残疾</option>
                                     </select>
@@ -313,9 +303,9 @@
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label class="col-form-label" for="status">救助类型</label>
                                     <select name="status" id="status" class="form-control">
-                                        <option value="1" selected="">救助</option>
+                                        <option value="0" selected="">救助类型</option>
+                                        <option value="1">救助</option>
                                         <option value="2">慰问</option>
                                         <option value="3">补贴</option>
                                     </select>
@@ -324,8 +314,8 @@
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label class="col-form-label" for="name">家庭住址</label>
-                                    <input type="text" id="address" name="address" value="" placeholder="" class="form-control">
+
+                                    <input type="text" id="address" name="address" value="" placeholder="家庭住址" class="form-control">
                                 </div>
                             </div>
 
@@ -344,6 +334,7 @@
                             <table class="table table-striped table-bordered table-hover dataTables-example" >
                                 <thead>
                         <tr>
+                            <th><input type="checkbox" class="i-checks"></th>
                             <th>id</th>
                             <th>姓名</th>
                             <th>性别</th>
@@ -354,6 +345,7 @@
                         </tr>
                         </thead>
                         <tbody id="tab">
+                            <td><input type="checkbox" class="i-checks"></td>
                         </tbody>
                     </table>
                             <div class="col-auto text-right float-right ml-auto" id="paging">
@@ -365,14 +357,7 @@
                 </div>
             </div>
         </div>
-            <div class="footer">
-                <div class="float-right">
-                 <strong>2.9.2 inspinia</strong>
-            </div>
-            <div>
-                <strong>Copyright</strong> inspinia 2.9.2 &copy; 2014-2018
-            </div>
-        </div>
+
 
         </div>
         </div>
@@ -408,7 +393,8 @@
                     index=data.index;
                   var a="";
                     $(data.list).each(function(i,item){
-                        a+="<tr class='gradeA'><td>"+item.id+"</td>";
+                        a+="<tr class='gradeA'><td><input type='checkbox' class='i-checks'></td>";
+                        a+="<td>"+item.id+"</td>";
                         a+="<td>"+item.name+"</td>";
                         a+="<td>"+item.sex+"</td>";
                         a+="<td>"+item.age+"</td>";
