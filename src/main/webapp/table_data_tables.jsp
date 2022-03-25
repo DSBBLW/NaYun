@@ -279,12 +279,70 @@
                 <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-title">
-                        <h5>基本数据表示例与响应插件</h5>
-                    </div>
-                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="name">姓名</label>
+                                    <input type="text" id="name" name="product_name" value="" placeholder="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="status">性别</label>
+                                    <select name="status" id="sex" class="form-control">
+                                        <option value="1" selected="">男</option>
+                                        <option value="0">女</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="name">年龄</label>
+                                    <input type="text" id="age" name="product_name" value="" placeholder="Age" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="status">救助原因</label>
+                                    <select name="status" id="Rescue_reason" class="form-control">
+                                        <option value="1" selected="">老人</option>
+                                        <option value="2">失独</option>
+                                        <option value="3">残疾</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="status">救助类型</label>
+                                    <select name="status" id="status" class="form-control">
+                                        <option value="1" selected="">救助</option>
+                                        <option value="2">慰问</option>
+                                        <option value="3">补贴</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="name">家庭住址</label>
+                                    <input type="text" id="address" name="address" value="" placeholder="" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+                        <button type="button" class="btn btn-outline btn-success">搜索</button>
                         <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover" >
-                        <thead>
+                            <table class="table table-striped"></table>
+                            <div class="ibox-tools"></div>
+                        </div>
+
+                        <div class="ibox-content"></div>
+
+                        <div class="table-responsive">
+                            <button type="button" class="btn btn-w-m btn-primary">新增</button>
+                            <button type="button" class="btn btn-w-m btn-danger">删除</button>
+                            <table class="table table-striped table-bordered table-hover dataTables-example" >
+                                <thead>
                         <tr>
                             <th>id</th>
                             <th>姓名</th>
