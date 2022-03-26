@@ -27,13 +27,10 @@
 </head>
 
 <body>
-
     <div id="wrapper">
-
     <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
-
                 <li class="nav-header">
                     <div class="dropdown profile-element">
                         <img alt="image" class="rounded-circle" src="assets/img/profile_small.jpg"/>
@@ -51,14 +48,12 @@
                         IN+
                     </div>
                 </li>
-
                 <li class="active">
                     <a href="#"><i class="fa fa-table"></i> <span class="nav-label">人员管理</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li class="active"><a href="table_data_tables.hjsp">个人信息登记</a></li>
                     </ul>
                 </li>
-
                 <li>
                     <a href="layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
                 </li>
@@ -75,8 +70,6 @@
                         <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
                     </ul>
                 </li>
-
-
                 <li>
                     <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">UI 元素</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
@@ -280,47 +273,52 @@
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <select name="status" id="sex" class="form-control" >
-                                        <option value="0" selected="">性别</option>
-                                        <option value="1">男</option>
-                                        <option value="2">女</option>
+                                        <option value="" selected="">性别</option>
+                                        <option value="男">男</option>
+                                        <option value="女">女</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <input type="text" id="age" name="product_name" value="" placeholder="年龄" class="form-control">
+                                    <input type="text" id="age"   placeholder="年龄" class="form-control">
+                                    <input type="text" id="age1"   placeholder="年龄2" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <select name="status" id="Rescue_reason" class="form-control">
-                                        <option value="0" selected="">救助原因</option>
-                                        <option value="1">老人</option>
-                                        <option value="2">失独</option>
-                                        <option value="3">残疾</option>
+                                        <option value="" selected="">救助原因</option>
+                                        <option value="残疾">残疾</option>
+                                        <option value="老人">老人</option>
+                                        <option value="失独">失独</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <select name="status" id="status" class="form-control">
-                                        <option value="0" selected="">救助类型</option>
-                                        <option value="1">救助</option>
-                                        <option value="2">慰问</option>
-                                        <option value="3">补贴</option>
+                                        <option value="" selected="">救助类型</option>
+                                        <option value="救助">救助</option>
+                                        <option value="慰问">慰问</option>
+                                        <option value="补贴">补贴</option>
                                     </select>
                                 </div>
 
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
+                                    <select name="statusd" id="shequ" onchange="showqu()" class="form-control">
+                                        <option value="0" selected="">请选择社区</option>
+                                    </select>
+                                    <select name='statusds' id="xiaoqu"  style="display:none;" class="form-control">
 
-                                    <input type="text" id="address" name="address" value="" placeholder="家庭住址" class="form-control">
+                                    </select>
                                 </div>
                             </div>
 
                         </div>
-                        <button type="button" class="btn btn-outline btn-success">搜索</button>
+                        <button type="button" onclick="sou()" class="btn btn-outline btn-success">搜索</button>
                         <div class="table-responsive">
                             <table class="table table-striped"></table>
                             <div class="ibox-tools"></div>
@@ -342,6 +340,7 @@
                             <th>联系电话</th>
                             <th>救助原因</th>
                             <th>家庭住址</th>
+                            <th>操作</th>
                         </tr>
                         </thead>
                         <tbody id="tab">
@@ -376,22 +375,68 @@
     <script src="assets/js/inspinia.js"></script>
     <script src="assets/js/plugins/pace/pace.min.js"></script>
     <script type="text/javascript">
-        var index=0;
-        var s="";
+        var index=0;//当前页数
+        var s="";//姓名
+        var sex="";//性别
+        var cause="";//救助原因
+        var type="";//救助类型
+        var age=0;//年龄1
+        var age1=1000;//年龄2
+        var she=0;//社区id
+        var qu=0;//小区id
         $(function () {
             cha();
-        });
+            selshe();
 
-        function cha(ii,name) {
+        });
+        function selshe() {
+            $.ajax({
+                url:'/selshe',
+                type:'get',
+                success:function(data){
+                    var str="";
+                    $(data).each(function(i,item){
+                        str+="<option value="+item.id+">"+item.name+"</option>";
+                    });
+                    $("#shequ").append(str);
+
+                }
+            });
+
+        }
+         function showqu() {
+             var id = $("#shequ").val();
+             $("#xiaoqu").html("");
+             $.ajax({
+                 url: '/selqu',
+                 type: 'get',
+                 data: {pid: id},
+                 success: function (data) {
+                     var str = "";
+                 str+="<option value='0' selected=''>请选择小区</option>";
+                     $(data).each(function (i, item) {
+                         str += "<option value=" + item.id + ">" + item.name + "</option>";
+                     });
+                     $("#xiaoqu").show();
+                     $("#xiaoqu").append(str);
+
+                 }
+             });
+         }
+        /*分页查询*/
+        function cha(ii,name,sexs,ag1,ag2,causes,sta,sheq,xiaoq) {
             var inde=ii;
             //查询
             $.ajax({
                 url:'sel',
                 type:'get',
-                data:{name:name,index:inde},
+                data:{name:name,index:inde,sex:sexs,age1:ag1,age2:ag2,cause:causes,jid:sta,eid:sheq,xid:xiaoq},
                 success:function (data) {
+                    if (data.count==0){
+                        $("#tab").html("");
+                    }
                     index=data.index;
-                  var a="";
+                    var a="";
                     $(data.list).each(function(i,item){
                         a+="<tr class='gradeA'><td><input type='checkbox' class='i-checks'></td>";
                         a+="<td>"+item.id+"</td>";
@@ -399,8 +444,9 @@
                         a+="<td>"+item.sex+"</td>";
                         a+="<td>"+item.age+"</td>";
                         a+="<td>"+item.phone+"</td>";
-                        a+="<td>"+item.rname+"</td>";
+                        a+="<td>"+item.cause+"</td>";
                         a+="<td>"+item.areans+"</td>";
+                        a+="<td><a onclick='upd()'>编辑</a></td>";
                         a+="</tr>";
                         $("#tab").html(a);
                     });
@@ -420,26 +466,33 @@
         /* 上一页 */
         function getShang(){
             index=index-1==0?1:index-1;
-            cha(index,s);
+            cha(index,s,sex,age,age1);
         }
         /* 下一页 */
         function getXia(con){
             index=index+1>=con?con:index+1;
-            cha(index,s);
+            cha(index,s,sex,age,age1);
         }
         /* 首页 */
         function getS(){
-            cha(1,s);
+            cha(1,s,sex,age,age1);
         }
         /* 尾页 */
         function getWy(con){
             con=con;
-            cha(con,s);
+            cha(con,s,sex,age,age1);
         }
         /* 搜索 */
         function sou(){
-            s=$("#ss").val();
-            cha(1,s);
+            s=$("#name").val();
+            sex=$("#sex").val();
+            age=$("#age").val();
+            age1=$("#age1").val();
+            cause=$("#Rescue_reason").val();
+            type=$("#status").val();
+            she=$("#shequ").val();
+            qu=$("#xiaoqu").val();
+            cha(1,s,sex,age,age1,cause,type,she,qu);
         }
     </script>
     <!-- Page-Level Scripts -->
@@ -454,7 +507,6 @@
                     {extend: 'csv'},
                     {extend: 'excel', title: 'ExampleFile'},
                     {extend: 'pdf', title: 'ExampleFile'},
-
                     {extend: 'print',
                      customize: function (win){
                             $(win.document.body).addClass('white-bg');

@@ -20,6 +20,16 @@ public class Peoples {
     private String arean;//籍贯
     private String areans;//现住址
     private String rname;//救助原因
+    private String jid;
+
+    public String getJid() {
+        return jid;
+    }
+
+    public void setJid(String jid) {
+        this.jid = jid;
+    }
+    //救助类型
 
     public int getId() {
         return id;
