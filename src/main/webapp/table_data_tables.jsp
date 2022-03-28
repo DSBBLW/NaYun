@@ -41,99 +41,53 @@
     <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
-                <li class="nav-header">
-                    <div class="dropdown profile-element">
-                        <img alt="image" class="rounded-circle" src="assets/img/profile_small.jpg"/>
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="block m-t-xs font-bold">admin</span>
-                            <span class="text-muted text-xs block">管理员 <b class="caret"></b></span>
-                        </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a class="dropdown-item" href="profile.html">个人信息</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="login.html">登出</a></li>
-                        </ul>
-                    </div>
-                    <div class="logo-element">
-                        IN+
-                    </div>
-                </li>
-                <li class="active">
-                    <a href="#"><i class="fa fa-table"></i> <span class="nav-label">人员管理</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="active"><a href="table_data_tables.hjsp">个人信息登记</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">图表</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="graph_flot.html">Flot Charts</a></li>
-                        <li><a href="graph_morris.html">Morris.js Charts</a></li>
-                        <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
-                        <li><a href="graph_chartjs.html">Chart.js</a></li>
-                        <li><a href="graph_chartist.html">Chartist</a></li>
-                        <li><a href="c3.html">c3 charts</a></li>
-                        <li><a href="graph_peity.html">Peity Charts</a></li>
-                        <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">UI 元素</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="typography.html">排版</a></li>
-                        <li><a href="icons.html">图标</a></li>
-                        <li><a href="draggable_panels.html">拖动排序</a></li> <li><a href="resizeable_panels.html">内容缩放</a></li>
-                        <li><a href="buttons.html">按钮</a></li>
-                        <li><a href="video.html">视频</a></li>
-                        <li><a href="tabs_panels.html">面板</a></li>
-                        <li><a href="tabs.html">标签</a></li>
-                        <li><a href="notifications.html">通知 & 工具</a></li>
-                        <li><a href="helper_classes.html">css 辅助</a></li>
-                        <li><a href="badges_labels.html">徽章 & 标签 & 进度条</a></li>
-                    </ul>
-                </li>
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <img alt="image" class="rounded-circle" src="assets/img/profile_small.jpg"/>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="block m-t-xs font-bold">admin</span>
+                        <span class="text-muted text-xs block">管理员 <b class="caret"></b></span>
+                    </a>
+                </div>
+            </li>
 
+            <li class="active">
+                <a href="table_data_tables.jsp"><i class="fa fa-table"></i> <span class="nav-label">人员管理</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="active"><a href="table_data_tables.jsp">个人信息登记</a></li>
+                </ul>
+            </li>
+            <li >
+                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">资金管理</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="#">资金登记</a></li>
+                </ul>
+                <ul class="nav nav-second-level">
+                    <li><a href="#">资金规划</a></li>
+                </ul>
+            </li>
+            <li >
+                <a href="modal_window.jsp"><i class="fa fa-th-large"></i> <span class="nav-label">统计日志</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="#">统计日志</a></li>
+                    <li><a href="#">统计日志</a></li>
+                </ul>
+            </li>
+            <li >
+                <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">工作审批</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="index.jsp">工作审批</a></li>
+                    <li><a href="dashboard_5.jsp">主页示例 v.5</a></li>
+                </ul>
+            </li>
 
-
-                <li>
-                    <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">菜单 </span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li>
-                            <a href="#">三级菜单 <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="#">三级菜单</a>
-                                </li>
-                                <li>
-                                    <a href="#">三级菜单</a>
-                                </li>
-                                <li>
-                                    <a href="#">三级菜单</a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li><a href="#">二级菜单</a></li>
-                        <li>
-                            <a href="#">二级菜单</a></li>
-                        git pull       <li>
-                            <a href="#">二级菜单</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="css_animation.html"><i class="fa fa-magic"></i> <span class="nav-label">CSS 动画 </span><span class="label label-info float-right">62</span></a>
-                </li>
-                <li class="landing_link">
-                    <a target="_blank" href="landing.html"><i class="fa fa-star"></i> <span class="nav-label">着陆页</span> <span class="label label-warning float-right">新</span></a>
-                </li>
-                <li class="special_link">
-                    <a href="package.html"><i class="fa fa-database"></i> <span class="nav-label">组件</span></a>
-                </li>
+            <li>
+                <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">权限管理</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="#">权限管理</a></li>
+                </ul>
+            </li>
             </ul>
-
         </div>
     </nav>
 
@@ -143,110 +97,10 @@
         <div class="navbar-header">
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
             <form role="search" class="navbar-form-custom" action="search_results.html">
-                <div class="form-group">
-                    <input type="text" placeholder="请输入搜索内容" class="form-control" name="top-search" id="top-search">
-                </div>
+
             </form>
         </div>
             <ul class="nav navbar-top-links navbar-right">
-                <li>
-                    <span class="m-r-sm text-muted welcome-message">欢迎来到inspinia 2.9.2管理后台</span>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <div class="dropdown-messages-box">
-                                <a class="dropdown-item float-left" href="profile.html">
-                                    <img alt="image" class="rounded-circle" src="img/a7.jpg">
-                                </a>
-                                <div class="media-body">
-                                    <small class="float-right">46 小时前</small>
-                                    <strong>小明</strong> 评论了 <strong>小红</strong>. <br>
-                                    <small class="text-muted">2017.10.06 7:58</small>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li>
-                            <div class="dropdown-messages-box">
-                                <a class="dropdown-item float-left" href="profile.html">
-                                    <img alt="image" class="rounded-circle" src="img/a4.jpg">
-                                </a>
-                                <div class="media-body ">
-                                    <small class="float-right text-navy">5 小时前</small>
-                                    <strong>小红</strong> 打电话给了 <strong>小黑</strong>. <br>
-                                    <small class="text-muted">2017.10.06 7:58</small>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li>
-                            <div class="dropdown-messages-box">
-                                <a class="dropdown-item float-left" href="profile.html">
-                                    <img alt="image" class="rounded-circle" src="img/profile.jpg">
-                                </a>
-                                <div class="media-body ">
-                                    <small class="float-right">23 小时前</small>
-                                    <strong>小黑</strong> 点赞了 <strong>小红</strong>. <br>
-                                    <small class="text-muted">2017.10.06 7:58</small>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li>
-                            <div class="text-center link-block">
-                                <a href="mailbox.html" class="dropdown-item">
-                                    <i class="fa fa-envelope"></i> <strong>阅读所有消息</strong>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="mailbox.html" class="dropdown-item">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> 你有16条消息
-                                    <span class="float-right text-muted small">4 分钟前</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li>
-                            <a href="profile.html" class="dropdown-item">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 个新的关注者
-                                    <span class="float-right text-muted small">12 分钟前</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li>
-                            <a href="grid_options.html" class="dropdown-item">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> 重启服务器
-                                    <span class="float-right text-muted small">4 分钟前</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li>
-                            <div class="text-center link-block">
-                                <a href="notifications.html" class="dropdown-item">
-                                    <strong>查看所有信息</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
                 <li>
                     <a href="login.jsp">
                         <i class="fa fa-sign-out"></i> 注销
@@ -333,9 +187,158 @@
 
                         <div class="ibox-content"></div>
 
-                        <div class="table-responsive">
-                            <button type="button" class="btn btn-w-m btn-primary">新增</button>
+                        <div class="ibox-content">
+
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+                                新增登记
+                            </button>
+                            <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content animated flipInY">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            <h4 class="modal-title">人员信息登记</h4>
+                                            <small class="font-bold">XXX社区 - XXX小区</small>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <div class="form-group">
+                                                        <input type="text" id="name_new" name="product_name" value="" placeholder="姓名" required="required" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <div class="form-group">
+                                                        <input type="text" id="phone_new" name="product_name" value="" placeholder="联系电话" required="required" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <input type="text" id="identity_new" name="product_name" value="" placeholder="身份证号" required="required" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <input type="text" id="age_new" name="product_name" value="" placeholder="年龄" required="required" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <select name="status" id="sex_new" class="form-control" >
+                                                            <option value="0" selected="" required="required" >性别</option>
+                                                            <option value="1">男</option>
+                                                            <option value="2">女</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <div class="form-group">
+                                                        <select name="status" id="up_status_new" class="form-control">
+                                                            <option value="0" selected="">救助类型</option>
+                                                            <option value="1">救助</option>
+                                                            <option value="2">慰问</option>
+                                                            <option value="3">补贴</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <div class="form-group">
+                                                        <select name="status" id="Rescue_reason_new" class="form-control">
+                                                            <option value="0" selected="">救助原因</option>
+                                                            <option value="1">老人</option>
+                                                            <option value="2">失独</option>
+                                                            <option value="3">残疾</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="row">
+                                                <%-- <label>北京市大兴区西红门镇</label>--%>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+
+                                                        <input type="text" id="address_new" name="address" value="" placeholder="家庭住址（X号楼X单元XXX）"  required="required" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+
+                                                <h4>&ensp;&ensp;&ensp;籍贯地址：</h4>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <select name="status" id="address1" class="form-control">
+                                                            <option value="0" selected="">省 </option>
+                                                            <option value="1">北京</option>
+                                                            <option value="2">天津</option>
+                                                            <option value="3">河北</option>
+                                                            <option value="4">...</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <select name="status" id="address2" class="form-control">
+                                                            <option value="0" selected="">市 </option>
+                                                            <option value="1">北京</option>
+                                                            <option value="2"></option>
+                                                            <option value="3"></option>
+                                                            <option value="4">...</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <select name="status" id="address3" class="form-control">
+                                                            <option value="0" selected="">区 </option>
+                                                            <option value="1">大兴</option>
+                                                            <option value="2"></option>
+                                                            <option value="3"></option>
+                                                            <option value="4">...</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <select name="status" id="address4" class="form-control">
+                                                            <option value="0" selected="">街道 </option>
+                                                            <option value="1">清源路</option>
+                                                            <option value="2"></option>
+                                                            <option value="3"></option>
+                                                            <option value="4">...</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+
+                                                        <input type="text" id="address5" name="address" value="" placeholder=" 详细地址 " required="required" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p><strong>内容测试11</strong> 内容测试试</p>
+                                        </div>
+                                    </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                                            <button type="button" class="btn btn-primary">保存更改</button>
+                                        </div>
+                                    </div>
+                                </div>
                             <button type="button" class="btn btn-w-m btn-danger">删除</button>
+                            </div>
+
+                        <div class="table-responsive">
+                            <%--<button type="button" class="btn btn-w-m btn-primary">新增</button>
+                            <button type="button" class="btn btn-w-m btn-danger">删除</button>--%>
                             <table class="table table-striped table-bordered table-hover dataTables-example" >
                                 <thead>
                         <tr>
