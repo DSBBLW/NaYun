@@ -11,30 +11,51 @@
     </select>
     <!--分页查询个人数据-->
     <select id="sel" resultType="com.nayun.pojo.Peoples">
-      select p.*,CONCAT(d.name,'-',di.name,'-',dis.name) as arean,concat(c.name,'-',co.name,p.address) as areans from peoples p
-        INNER JOIN districts d
-        on p.idp=d.id
-        INNER JOIN districts di
-        on p.idc=di.id
-        INNER JOIN districts dis
-        on p.idt= dis.id
-        INNER JOIN community c
-        on p.eid=c.id
-        INNER JOIN community co
-        on p.xid=co.id
-        where p.name like #{name}
-         and p.sex like #{sex}
-         and p.age > #{age1}
-         and p.age <![CDATA[ < ]]> #{age2}
-         and p.cause like #{cause}
-         and jid like #{jid}
-         <if test="eid!=0">
-             and eid = #{eid}
-         </if>
-        <if test="xid!=0">
-            and xid = #{xid}
+        <if test="xid==0">
+            select p.*,CONCAT(d.name,'-',di.name,'-',dis.name) as arean,concat(c.name,'-',co.name,p.address) as areans from peoples p
+            INNER JOIN districts d
+            on p.idp=d.id
+            INNER JOIN districts di
+            on p.idc=di.id
+            INNER JOIN districts dis
+            on p.idt= dis.id
+            INNER JOIN community c
+            on p.eid=c.id
+            INNER JOIN community co
+            on p.xid=co.id
+            where p.name like #{name}
+            and p.sex like #{sex}
+            and p.age > #{age1}
+            and p.age <![CDATA[ < ]]> #{age2}
+            and p.cause like #{cause}
+            and jid like #{jid}
+            and eid = #{eid}
+            <if test="xid!=0">
+                and xid = #{xid}
+            </if>
+            limit #{index},10
         </if>
-        limit #{index},10
+        <if test="eid==0">
+            select p.*,CONCAT(d.name,'-',di.name,'-',dis.name) as arean,concat(c.name,'-',co.name,p.address) as areans from peoples p
+            INNER JOIN districts d
+            on p.idp=d.id
+            INNER JOIN districts di
+            on p.idc=di.id
+            INNER JOIN districts dis
+            on p.idt= dis.id
+            INNER JOIN community c
+            on p.eid=c.id
+            INNER JOIN community co
+            on p.xid=co.id
+            where p.name like #{name}
+            and p.sex like #{sex}
+            and p.age > #{age1}
+            and p.age <![CDATA[ < ]]> #{age2}
+            and p.cause like #{cause}
+            and jid like #{jid}
+            and xid = #{xid}
+            limit #{index},10
+        </if>
     </select>
     <!--查询总页数-->
     <select id="cou" resultType="int">
