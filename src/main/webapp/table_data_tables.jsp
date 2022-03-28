@@ -5,6 +5,16 @@
             + request.getServerName() + ":" + request.getServerPort()
             + path;
 %>
+<%
+    // 重定向到新地址
+    HttpSession session1=request.getSession();
+    if (session1.getAttribute("c")==null){
+        String site = new String("login.jsp");
+        response.setStatus(response.SC_MOVED_TEMPORARILY);
+        response.setHeader("Location", site);
+    }
+
+%>
 <base href="<%=basePath%>" rel="external nofollow" >
 <!DOCTYPE html>
 <html>
@@ -237,10 +247,8 @@
                         </li>
                     </ul>
                 </li>
-
-
                 <li>
-                    <a href="login.html">
+                    <a href="login.jsp">
                         <i class="fa fa-sign-out"></i> 注销
                     </a>
                 </li>
@@ -252,7 +260,6 @@
                 <div class="col-lg-10">
                     <h2>人员信息管理</h2>
                     <ol class="breadcrumb">
-
                     </ol>
                 </div>
                 <div class="col-lg-2">
@@ -308,9 +315,9 @@
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <select name="statusd" id="shequ" onchange="showqu()" class="form-control">
+                                    <%--<select name="statusd" id="shequ" onchange="showqu()" class="form-control">
                                         <option value="0" selected="">请选择社区</option>
-                                    </select>
+                                    </select>--%>
                                     <select name='statusds' id="xiaoqu"  style="display:none;" class="form-control">
 
                                     </select>
@@ -382,14 +389,17 @@
         var type="";//救助类型
         var age=0;//年龄1
         var age1=1000;//年龄2
-        var she=0;//社区id
-        var qu=0;//小区id
+        var she="<%=session.getAttribute("cid")%>";
+        var qu="<%=session.getAttribute("xid")%>";
+        alert(she+qu);
         $(function () {
             cha();
-            selshe();
-
+            var myName="<%=session.getAttribute("xin")%>";
+            if (she!=0){
+                showqu();
+            }
         });
-        function selshe() {
+        /*function selshe() {
             $.ajax({
                 url:'/selshe',
                 type:'get',
@@ -403,14 +413,13 @@
                 }
             });
 
-        }
+        }*/
          function showqu() {
-             var id = $("#shequ").val();
-             $("#xiaoqu").html("");
+
              $.ajax({
                  url: '/selqu',
                  type: 'get',
-                 data: {pid: id},
+                 data: {pid: she},
                  success: function (data) {
                      var str = "";
                  str+="<option value='0' selected=''>请选择小区</option>";
@@ -424,13 +433,13 @@
              });
          }
         /*分页查询*/
-        function cha(ii,name,sexs,ag1,ag2,causes,sta,sheq,xiaoq) {
+        function cha(ii,name,sexs,ag1,ag2,causes,sta) {
             var inde=ii;
             //查询
             $.ajax({
                 url:'sel',
                 type:'get',
-                data:{name:name,index:inde,sex:sexs,age1:ag1,age2:ag2,cause:causes,jid:sta,eid:sheq,xid:xiaoq},
+                data:{name:name,index:inde,sex:sexs,age1:ag1,age2:ag2,cause:causes,jid:sta,eid:she,xid:qu},
                 success:function (data) {
                     if (data.count==0){
                         $("#tab").html("");
@@ -466,21 +475,21 @@
         /* 上一页 */
         function getShang(){
             index=index-1==0?1:index-1;
-            cha(index,s,sex,age,age1);
+            cha(index,s,sex,age,age1,cause,type,qu);
         }
         /* 下一页 */
         function getXia(con){
             index=index+1>=con?con:index+1;
-            cha(index,s,sex,age,age1);
+            cha(index,s,sex,age,age1,cause,type,qu);
         }
         /* 首页 */
         function getS(){
-            cha(1,s,sex,age,age1);
+            cha(1,s,sex,age,age1,cause,type,qu);
         }
         /* 尾页 */
         function getWy(con){
             con=con;
-            cha(con,s,sex,age,age1);
+            cha(con,s,sex,age,age1,cause,type,qu);
         }
         /* 搜索 */
         function sou(){
@@ -490,9 +499,10 @@
             age1=$("#age1").val();
             cause=$("#Rescue_reason").val();
             type=$("#status").val();
-            she=$("#shequ").val();
-            qu=$("#xiaoqu").val();
-            cha(1,s,sex,age,age1,cause,type,she,qu);
+            if (she!=0){
+                qu=$("#xiaoqu").val();
+            }
+            cha(1,s,sex,age,age1,cause,type,qu);
         }
     </script>
     <!-- Page-Level Scripts -->

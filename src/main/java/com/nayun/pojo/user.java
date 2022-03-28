@@ -5,7 +5,25 @@ public class user {
     private String username;//用户名
     private String password;//密码
     private String power;//权限
+    private String cid;//社区id
 
+    public String getCid() {
+        return cid;
+    }
+
+    public void setCid(String cid) {
+        this.cid = cid;
+    }
+
+    public String getXid() {
+        return xid;
+    }
+
+    public void setXid(String xid) {
+        this.xid = xid;
+    }
+
+    private String xid;//区id
     public int getId() {
         return id;
     }

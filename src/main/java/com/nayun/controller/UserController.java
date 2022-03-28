@@ -10,32 +10,34 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 @RestController
 @ResponseBody
 public class UserController {
     @Resource
     UserMapper dao;
-    @RequestMapping("/user")
-    @ResponseBody
-    public ModelAndView qwe1(){
-        ModelAndView and=new ModelAndView();
-        and.setViewName("login");
-        return and;
+    @RequestMapping("/")
+    public ModelAndView dologin() {
+    ModelAndView and =new ModelAndView();
+    and.setViewName("login");
+    return and;
     }
+
     @RequestMapping("/dologin")
     @ResponseBody
-    public ModelAndView dologin(String username,String password){
-        user user=dao.sel(username,password);
+    public ModelAndView dologin(String username, String password, HttpSession session){
+        user user1=dao.sel(username,password);
+
+        if (user1!=null ){
+            session.setAttribute("xin",user1.getPassword());
+            session.setAttribute("cid",user1.getCid());
+            System.out.println(user1.getCid());
+            session.setAttribute("xid",user1.getXid());
+            session.setAttribute("c","登录成功");
+        }
         ModelAndView and =new ModelAndView();
         and.setViewName("table_data_tables");
         return and;
     }
-    @RequestMapping("/hello")
-    @ResponseBody
-    public String hello(){
-        return "hello1";
-    }
-
-
 }
